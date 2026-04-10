@@ -216,10 +216,11 @@
       flex-shrink: 0;
       width: 120px; height: 120px; border-radius: 50%;
       background: var(--slate-700);
-      display: flex; align-items: center; justify-content: center;
       border: 3px solid rgba(234,88,12,0.4);
-      color: var(--slate-400); font-size: 0.8rem; text-align: center;
-      line-height: 1.4; padding: 10px;
+      overflow: hidden;
+    }
+    .guest-avatar img {
+      width: 100%; height: 100%; object-fit: cover; object-position: center top;
     }
     .guest-info { flex: 1; min-width: 220px; }
     .guest-role { font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; color: #fb923c; font-weight: 600; margin-bottom: 6px; }
@@ -472,7 +473,7 @@
       <p>地域イノベーションの鍵は、個人の情熱を可視化することにあります</p>
     </div>
     <div class="guest-card">
-      <div class="guest-avatar">Guest<br>Photo</div>
+      <div class="guest-avatar"><img src="harada.jpg" alt="原田 和輝 氏" /></div>
       <div class="guest-info">
         <p class="guest-role">地域イントレプレナー</p>
         <h3 class="guest-name">原田 和輝 氏</h3>
