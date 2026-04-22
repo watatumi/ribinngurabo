@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>袋井・Birds Night | 関係人口会議</title>
+  <meta name="description" content="4月17日（金）18:30〜20:00 袋井・Birds Night。関係人口会議：袋井を「もっと」おもしろくする仕組みの作り方とは？" />
+  <meta property="og:title" content="袋井・Birds Night — 関係人口会議" />
+  <meta property="og:description" content="4月17日（金）18:30〜20:00｜課題の投げ込みバー、官民共創の夜" />
+  <meta property="og:type" content="website" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --orange: #ea580c;
+      --orange-light: #fb923c;
+      --orange-bg: #fff7ed;
+      --amber-bg: #fffbeb;
+      --slate-50: #f8fafc;
+      --slate-100: #f1f5f9;
+      --slate-200: #e2e8f0;
+      --slate-300: #cbd5e1;
+      --slate-400: #94a3b8;
+      --slate-500: #64748b;
+      --slate-600: #475569;
+      --slate-700: #334155;
+      --slate-800: #1e293b;
+      --slate-900: #0f172a;
+      --white: #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--slate-50);
+      color: var(--slate-800);
+      font-family: 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', 'Yu Gothic', sans-serif;
+      line-height: 1.7;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--slate-200);
+    }
+    .nav-inner {
+      max-width: 1100px; margin: 0 auto;
+      padding: 0 24px; height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 1.15rem; font-weight: 800;
+      color: var(--orange); text-decoration: none;
+    }
+    .nav-logo svg { width: 20px; height: 20px; }
+    .nav-breadcrumb {
+      display: flex; align-items: center; gap: 8px;
+      font-size: .82rem; color: var(--slate-500);
+    }
+    .nav-breadcrumb a { color: var(--slate-500); text-decoration: none; }
+    .nav-breadcrumb a:hover { color: var(--orange); }
+    .nav-breadcrumb .sep { color: var(--slate-300); }
+    .nav-breadcrumb .current { color: var(--slate-700); font-weight: 600; }
+    .nav-links {
+      display: flex; gap: 28px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.875rem; font-weight: 500;
+      color: var(--slate-600); text-decoration: none;
+      transition: color 0.15s;
+    }
+    .nav-links a:hover { color: var(--orange); }
+    .nav-cta {
+      background: var(--slate-900); color: var(--white);
+      padding: 10px 22px; border-radius: 100px;
+      font-size: 0.875rem; font-weight: 600;
+      text-decoration: none;
+      transition: background 0.15s;
+      white-space: nowrap;
+    }
+    .nav-cta:hover { background: var(--slate-700); }
+    @media (max-width: 700px) {
+      .nav-links { display: none; }
+      .nav-breadcrumb { display: none; }
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      padding: 80px 24px 120px;
+      text-align: center;
+      background: linear-gradient(135deg, #fff7ed 0%, #fffbeb 60%, #fff 100%);
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; top: 0; right: 0;
+      width: 55%; height: 100%;
+      background: radial-gradient(circle at top right, rgba(251,146,60,0.25) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-block;
+      padding: 6px 16px; border-radius: 100px;
+      background: #ffedd5; color: var(--orange);
+      font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em;
+      margin-bottom: 28px;
+    }
+    .hero h1 {
+      font-size: clamp(1.75rem, 5.5vw, 3.25rem);
+      font-weight: 900; line-height: 1.2;
+      letter-spacing: -0.01em;
+      color: var(--slate-900);
+      margin-bottom: 24px;
+    }
+    .hero h1 .highlight {
+      background: linear-gradient(135deg, var(--orange) 0%, #f59e0b 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-desc {
+      font-size: 1rem; color: var(--slate-600);
+      max-width: 640px; margin: 0 auto 40px;
+      line-height: 1.85;
+    }
+    .hero-meta {
+      display: inline-flex; flex-wrap: wrap; justify-content: center;
+      gap: 0; align-items: center;
+      background: rgba(255,255,255,0.7); backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.6);
+      border-radius: 16px; padding: 12px 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      margin-bottom: 40px;
+    }
+    .hero-meta-item {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 0.925rem; font-weight: 500; color: var(--slate-700);
+      padding: 8px 16px;
+    }
+    .hero-meta-item svg { color: var(--orange); flex-shrink: 0; }
+    .divider-v {
+      width: 1px; height: 32px; background: var(--slate-300);
+      flex-shrink: 0;
+    }
+    @media (max-width: 540px) { .divider-v { display: none; } }
+    .hero-cta {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--orange); color: var(--white);
+      padding: 16px 36px; border-radius: 100px;
+      font-size: 1.05rem; font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 8px 28px rgba(234,88,12,0.35);
+      transition: transform 0.2s, background 0.15s;
+    }
+    .hero-cta:hover { background: #c2410c; transform: translateY(-2px); }
+    .hero-cta svg { width: 20px; height: 20px; }
+
+    /* ─── SECTIONS ─── */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .section-label {
+      display: inline-block;
+      font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--orange); font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 800; line-height: 1.3;
+      color: var(--slate-900); margin-bottom: 20px;
+    }
+
+    /* ─── CONCEPT ─── */
+    #concept { padding: 96px 24px; background: var(--white); }
+    .concept-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 64px; align-items: center;
+    }
+    @media (max-width: 700px) { .concept-grid { grid-template-columns: 1fr; gap: 40px; } }
+    .concept-text p { font-size: 0.95rem; color: var(--slate-600); line-height: 1.85; margin-bottom: 16px; }
+    .concept-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .concept-card {
+      padding: 24px; border-radius: 24px;
+      transition: transform 0.2s;
+    }
+    .concept-card:hover { transform: translateY(-3px); }
+    .concept-card.orange { background: #fff7ed; }
+    .concept-card.amber  { background: #fffbeb; margin-top: 32px; }
+    .concept-card svg { width: 36px; height: 36px; margin-bottom: 14px; }
+    .concept-card.orange svg { color: var(--orange); }
+    .concept-card.amber  svg { color: #f59e0b; }
+    .concept-card h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; color: var(--slate-900); }
+    .concept-card p { font-size: 0.84rem; color: var(--slate-600); line-height: 1.65; }
+
+    /* ─── GUEST ─── */
+    #guest {
+      padding: 96px 24px;
+      background: var(--slate-900); color: var(--white);
+      position: relative; overflow: hidden;
+    }
+    #guest::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .guest-header { text-align: center; margin-bottom: 48px; }
+    .guest-header h2 { font-size: 1.75rem; font-weight: 800; margin-bottom: 8px; }
+    .guest-header p { color: #94a3b8; font-size: 0.95rem; }
+    .guest-card {
+      background: rgba(30,41,59,0.8); backdrop-filter: blur(8px);
+      border: 1px solid rgba(51,65,85,0.8);
+      border-radius: 24px; padding: 48px;
+      max-width: 780px; margin: 0 auto;
+      box-shadow: 0 24px 48px rgba(0,0,0,0.3);
+      display: flex; gap: 40px; align-items: flex-start;
+      flex-wrap: wrap;
+    }
+    .guest-avatar {
+      flex-shrink: 0;
+      width: 120px; height: 120px; border-radius: 50%;
+      background: var(--slate-700);
+      border: 3px solid rgba(234,88,12,0.4);
+      overflow: hidden;
+    }
+    .guest-avatar img {
+      width: 100%; height: 100%; object-fit: cover; object-position: center top;
+    }
+    .guest-info { flex: 1; min-width: 220px; }
+    .guest-role { font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; color: #fb923c; font-weight: 600; margin-bottom: 6px; }
+    .guest-name { font-size: 1.6rem; font-weight: 800; margin-bottom: 4px; }
+    .guest-org { font-size: 0.85rem; color: #94a3b8; margin-bottom: 24px; }
+    .guest-block { margin-bottom: 20px; }
+    .guest-block-label {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 0.85rem; font-weight: 600; color: #fb923c;
+      margin-bottom: 10px;
+    }
+    .guest-block-label svg { width: 14px; height: 14px; }
+    .guest-theme {
+      background: rgba(15,23,42,0.6);
+      border: 1px solid rgba(51,65,85,0.6);
+      border-radius: 12px; padding: 16px 20px;
+    }
+    .guest-theme strong {
+      display: block; font-size: 1.05rem; font-weight: 700;
+      color: var(--white); margin-bottom: 8px; line-height: 1.45;
+    }
+    .guest-theme p { font-size: 0.875rem; color: #cbd5e1; line-height: 1.7; }
+    .guest-list { list-style: none; }
+    .guest-list li {
+      font-size: 0.875rem; color: #cbd5e1;
+      padding: 6px 0; padding-left: 16px; position: relative;
+    }
+    .guest-list li::before {
+      content: '•'; position: absolute; left: 0; color: #fb923c;
+    }
+
+    /* ─── PROGRAM ─── */
+    #program { padding: 96px 24px; background: #fff7ed; }
+    .program-header { text-align: center; margin-bottom: 56px; }
+    .program-header h2 { font-size: 1.75rem; font-weight: 800; margin-bottom: 8px; color: var(--slate-900); }
+    .program-header p { color: var(--slate-600); }
+    .timeline {
+      max-width: 680px; margin: 0 auto;
+      position: relative;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute; left: 20px; top: 20px; bottom: 20px;
+      width: 2px;
+      background: linear-gradient(to bottom, transparent, var(--orange), transparent);
+    }
+    .timeline-item {
+      display: flex; gap: 20px; align-items: flex-start;
+      margin-bottom: 28px;
+    }
+    .timeline-dot {
+      flex-shrink: 0;
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--orange); color: var(--white);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem; font-weight: 800;
+      border: 3px solid var(--white);
+      box-shadow: 0 0 0 2px var(--orange);
+      position: relative; z-index: 1;
+    }
+    .timeline-card {
+      flex: 1;
+      background: var(--white); border-radius: 16px; padding: 20px 24px;
+      border: 1px solid var(--slate-100);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .timeline-time { font-size: 0.82rem; font-weight: 700; color: var(--orange); margin-bottom: 4px; letter-spacing: 0.04em; }
+    .timeline-card h4 { font-size: 1rem; font-weight: 700; color: var(--slate-900); margin-bottom: 6px; }
+    .timeline-card p { font-size: 0.875rem; color: var(--slate-600); line-height: 1.65; }
+
+    /* ─── AUDIENCE ─── */
+    #audience { padding: 96px 24px; background: var(--white); }
+    .audience-inner {
+      background: linear-gradient(135deg, var(--slate-900) 0%, var(--slate-800) 100%);
+      border-radius: 28px; padding: 64px 48px;
+      text-align: center; color: var(--white);
+      position: relative; overflow: hidden;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.15);
+    }
+    @media (max-width: 600px) { .audience-inner { padding: 48px 24px; } }
+    .audience-inner::before, .audience-inner::after {
+      content: ''; position: absolute;
+      border-radius: 50%;
+      mix-blend-mode: multiply; filter: blur(56px);
+      opacity: 0.2; pointer-events: none;
+    }
+    .audience-inner::before {
+      width: 300px; height: 300px; background: var(--orange);
+      top: -80px; right: -80px;
+    }
+    .audience-inner::after {
+      width: 300px; height: 300px; background: #f59e0b;
+      bottom: -80px; left: -80px;
+    }
+    .audience-inner h2 { font-size: 1.75rem; font-weight: 800; margin-bottom: 36px; position: relative; z-index: 1; }
+    .audience-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px; margin-bottom: 40px; position: relative; z-index: 1;
+    }
+    .audience-card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 16px; padding: 20px 16px;
+      font-size: 0.9rem; font-weight: 500; line-height: 1.5;
+    }
+    .audience-cta {
+      display: inline-block;
+      background: var(--orange); color: var(--white);
+      padding: 16px 36px; border-radius: 100px;
+      font-size: 1rem; font-weight: 700;
+      text-decoration: none;
+      position: relative; z-index: 1;
+      transition: background 0.15s, transform 0.2s;
+      box-shadow: 0 8px 24px rgba(234,88,12,0.4);
+    }
+    .audience-cta:hover { background: #c2410c; transform: translateY(-2px); }
+
+    /* ─── SNS SHARE ─── */
+    #share {
+      padding: 64px 24px;
+      background: var(--slate-50); border-top: 1px solid var(--slate-200);
+      text-align: center;
+    }
+    #share h2 { font-size: 1.25rem; font-weight: 700; margin-bottom: 8px; color: var(--slate-900); }
+    #share p { font-size: 0.9rem; color: var(--slate-500); margin-bottom: 28px; }
+    .share-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .share-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 11px 22px; border-radius: 100px;
+      font-size: 0.875rem; font-weight: 600; text-decoration: none;
+      transition: transform 0.15s, opacity 0.15s;
+      cursor: pointer; border: none; font-family: inherit;
+    }
+    .share-btn:hover { transform: translateY(-2px); opacity: 0.88; }
+    .share-btn.x    { background: #000; color: #fff; }
+    .share-btn.line { background: #06C755; color: #fff; }
+    .share-btn.copy {
+      background: var(--white); color: var(--slate-700);
+      border: 1px solid var(--slate-200);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      padding: 48px 24px;
+      background: var(--slate-50);
+      border-top: 1px solid var(--slate-200);
+      text-align: center;
+    }
+    .footer-logo {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      font-size: 1rem; font-weight: 700; color: var(--slate-800);
+      margin-bottom: 12px;
+    }
+    .footer-logo svg { color: var(--slate-400); }
+    footer p { font-size: 0.85rem; color: var(--slate-500); margin-bottom: 4px; }
+    footer .copy { font-size: 0.75rem; color: var(--slate-400); margin-top: 12px; }
+
+    /* ─── INLINE SVG ICONS ─── */
+    .icon { display: inline-block; vertical-align: middle; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>
+      袋井リビングラボ<span style="color:var(--slate-400);font-weight:400;margin:0 2px;">×</span>BirdsNight
+</a>
+    <div class="nav-breadcrumb">
+      <a href="index.html">HOME</a>
+      <span class="sep">/</span>
+      <span class="current">Vol.01 イベント詳細</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="living-lab.html">リビングラボとは</a></li>
+      <li><a href="#concept">コンセプト</a></li>
+      <li><a href="#guest">ゲスト</a></li>
+      <li><a href="#program">プログラム</a></li>
+      <li><a href="report-vol1.html" style="color:var(--orange);font-weight:700;">開催報告</a></li>
+    </ul>
+    <a class="nav-cta" href="https://forms.gle/WX1mADduL1L4pdYr5" target="_blank" rel="noopener">参加を申し込む</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="hero-badge">第1回 BirdsNight・リビングラボ（仮）</div>
+    <h1>
+      関係人口会議：<br>
+      <span class="highlight">袋井を"もっと"おもしろくする<br>仕組みの作り方とは？</span>
+    </h1>
+    <p class="hero-desc">
+      完成されたアイデアはいりません。「こんなことで困っている」「こんなことやってみたい」。<br>
+      地域の現場に眠る課題と個人の熱量を結びつけ、未来をプロトタイプする「課題投げ込みの場」が始まります。
+    </p>
+
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        4月17日（金）
+      </div>
+      <div class="divider-v"></div>
+      <div class="hero-meta-item">
+        <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        18:30 — 20:00
+      </div>
+      <div class="divider-v"></div>
+      <div class="hero-meta-item">
+        <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Birds（地域共創ハブ拠点）
+      </div>
+    </div>
+
+    <a class="hero-cta" href="https://forms.gle/WX1mADduL1L4pdYr5" target="_blank" rel="noopener">
+      イベントに参加する
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- CONCEPT -->
+<section id="concept">
+  <div class="container">
+    <div class="concept-grid">
+      <div class="concept-text">
+        <p class="section-label">Concept</p>
+        <h2 class="section-title">「組織完結型」から<br>「産官学民連携の共創」へ</h2>
+        <p>国や大企業の主導を待つのではなく、地域の現場にある一次情報と、そこに住む個人の熱量を結びつける。それこそが、日本独自の突破口である「リビングラボ・アプローチ」です。</p>
+        <p>本イベントが舞台とする「Birds」は、単なる交流拠点ではありません。地域の「アジェンダ（目的）」と「コミュニティ（意思ある参加者）」を接続し、社会実装を導き出す中間活動体として、新しい地域の渦を創出します。</p>
+      </div>
+      <div class="concept-cards">
+        <div class="concept-card orange">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          <h3>課題の投げ込み場</h3>
+          <p>完成した事業計画は不要。答えのない悩みや「やってみたいこと」を気軽に持ち込める安全な対話の場です。</p>
+        </div>
+        <div class="concept-card amber">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <h3>境界を溶かす</h3>
+          <p>行政、民間、アカデミア。組織の肩書きを外し、個人対個人の信頼に基づく関係性からプロジェクトを生み出します。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GUEST -->
+<section id="guest">
+  <div class="container">
+    <div class="guest-header">
+      <p class="section-label" style="color:#fb923c;">Guest Deep Dive</p>
+      <h2>行政という「組織」の中に<br>隠れた「個人」の情熱を可視化する</h2>
+      <p>地域イノベーションの鍵は、個人の情熱を可視化することにあります</p>
+    </div>
+    <div class="guest-card">
+      <div class="guest-avatar"><img src="harada.jpg" alt="原田 和輝 氏" /></div>
+      <div class="guest-info">
+        <p class="guest-role">地域イントレプレナー</p>
+        <h3 class="guest-name">原田 和輝 氏</h3>
+        <p class="guest-org">袋井市 ブランド戦略課</p>
+        <div class="guest-block">
+          <div class="guest-block-label">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            今回のコンセプト（投げ込みテーマ）
+          </div>
+          <div class="guest-theme">
+            <strong>「関係人口会議：袋井を"もっと"おもしろくする仕組みの作り方とは？」</strong>
+            <p>国主導で始まる『ふるさと住民登録制度』。これを単なる制度説明で終わらせず、袋井に愛を持ってもらうための仕組みとして、地域の皆さんとどう作り上げていけるかを対話します。</p>
+          </div>
+        </div>
+        <div class="guest-block">
+          <div class="guest-block-label">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            ディープダイブ・ポイント
+          </div>
+          <ul class="guest-list">
+            <li>なぜ行政の枠組みを超え、共創に挑む必要があると考えたのか（原体験）</li>
+            <li>既存の制約の中で、今まさに葛藤している答えのない課題とは</li>
+            <li>5年後、10年後の袋井において、市民と共に実装したい景色</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAM -->
+<section id="program">
+  <div class="container">
+    <div class="program-header">
+      <p class="section-label">Timetable</p>
+      <h2 class="section-title">当日のプログラム</h2>
+      <p>少人数でアットホームな雰囲気の中、対話を重視して進行します</p>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot">1</div>
+        <div class="timeline-card">
+          <div class="timeline-time">18:30</div>
+          <h4>アイスブレイク＆自己紹介</h4>
+          <p>肩書きではなく「人となり」を知ることからスタート。少人数だからこそできる、濃い自己紹介で場を温めます。</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">2</div>
+        <div class="timeline-card">
+          <div class="timeline-time">18:45</div>
+          <h4>ゲスト・ディープダイブ</h4>
+          <p>原田氏からの課題投げ込み。「ふるさと住民登録制度」を題材に、行政側の葛藤や想いを共有し、対話の土台を作ります。</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">3</div>
+        <div class="timeline-card">
+          <div class="timeline-time">19:15</div>
+          <h4>課題解決アイデア出し＆対話</h4>
+          <p>参加者全員で「自分だったら何ができるか」「どうすれば面白くなるか」をフラットに議論します。</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">4</div>
+        <div class="timeline-card">
+          <div class="timeline-time">19:45</div>
+          <h4>ネットワーキング・次へのステップ</h4>
+          <p>今日生まれたアイデアをどう次に繋げるか。参加者同士の自由な交流と、今後のBirdsでの展開を共有します。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AUDIENCE -->
+<section id="audience">
+  <div class="container">
+    <div class="audience-inner">
+      <h2>こんな方をお待ちしています</h2>
+      <div class="audience-grid">
+        <div class="audience-card">地域で実現したい<br>アイデアがある人</div>
+        <div class="audience-card">社内では相談できない<br>課題を抱える企業の方</div>
+        <div class="audience-card">技術や熱意を<br>社会課題に活かしたい学生</div>
+        <div class="audience-card">とにかく地域で<br>面白いことを始めたい人</div>
+      </div>
+      <a class="audience-cta" href="https://forms.gle/WX1mADduL1L4pdYr5" target="_blank" rel="noopener">参加申し込みフォームへ</a>
+    </div>
+  </div>
+</section>
+
+<!-- SNS SHARE -->
+<section id="share">
+  <div class="container">
+    <h2>このイベントをシェアする</h2>
+    <p>共創に興味のある方へ、ぜひ広めてください</p>
+    <div class="share-btns">
+      <a class="share-btn x" id="twitterShare" href="#" target="_blank" rel="noopener">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        X（Twitter）でシェア
+      </a>
+      <a class="share-btn line" id="lineShare" href="#" target="_blank" rel="noopener">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125zM14.205 14.849c-.194 0-.374-.104-.473-.275L11.51 10.6v3.973c0 .346-.283.629-.629.629-.345 0-.63-.283-.63-.629V8.108c0-.345.285-.63.63-.63.194 0 .37.1.469.271l2.221 3.969V8.108c0-.345.285-.63.63-.63.344 0 .629.285.629.63v6.112c0 .346-.285.629-.625.629m-5.04 0c-.347 0-.63-.283-.63-.629V8.108c0-.345.283-.63.63-.63.345 0 .628.285.628.63v6.112c0 .346-.283.629-.628.629m-2.168 0H4.61c-.346 0-.629-.283-.629-.629V8.108c0-.345.283-.63.63-.63.345 0 .627.285.627.63v5.482h1.759c.348 0 .63.283.63.63 0 .346-.282.629-.63.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+        LINEでシェア
+      </a>
+      <button class="share-btn copy" id="copyBtn" onclick="copyUrl()">🔗 URLをコピー</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>
+    Birds Night
+  </div>
+  <p>開催場所：Birds（地域共創のハブ拠点）</p>
+  <p class="copy">© 2026 Birds. All rights reserved.</p>
+</footer>
+
+<script>
+  const pageUrl = encodeURIComponent(window.location.href);
+  const shareText = encodeURIComponent('【4/17(金)18:30〜】袋井・Birds Night 開催🌟\n関係人口会議：袋井を「もっと」おもしろくする仕組みの作り方とは？\n#袋井 #リビングラボ #官民共創');
+
+  document.getElementById('twitterShare').href =
+    `https://twitter.com/intent/tweet?text=${shareText}&url=${pageUrl}`;
+  document.getElementById('lineShare').href =
+    `https://social-plugins.line.me/lineit/share?url=${pageUrl}`;
+
+  function copyUrl() {
+    navigator.clipboard.writeText(window.location.href).then(() => {
+      const btn = document.getElementById('copyBtn');
+      btn.textContent = '✅ コピーしました！';
+      setTimeout(() => { btn.textContent = '🔗 URLをコピー'; }, 2000);
+    });
+  }
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+    });
+  });
+</script>
+</body>
+</html>
